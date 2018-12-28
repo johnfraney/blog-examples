@@ -1,0 +1,19 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+asgiref = "*"
+pytest = "*"
+pytest-asyncio = "*"
+celery = "*"
+sqlalchemy = "*"
+librabbitmq = "*"
+redis = "*"
+pylibmc = "*"
+
+[requires]
+python_version = "3.7"
