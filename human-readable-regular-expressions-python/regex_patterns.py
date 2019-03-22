@@ -2,6 +2,10 @@ import re
 from dataclasses import dataclass
 
 
+class PatternException(Exception):
+    pass
+
+
 @dataclass
 class PatternPart(object):
     """A regex pattern fragment."""
@@ -60,7 +64,9 @@ class Group(PatternPart):
 
     def __str__(self):
         if self.one_or_more and self.zero_or_more:
-            raise ImproperlyCongifured('Pattern cannot be both one and zero or more')
+            raise PatternException(
+                'Pattern cannot be both one and zero or more'
+            )
         if self.name:
             pattern = r'(?P<{name}>{pattern})'.format(
                 name=self.name, pattern=self.pattern
@@ -89,8 +95,6 @@ def build_pattern(*pattern_parts) -> str:
 
 
 if __name__ == '__main__':
-    ONE_OR_MORE_LINES_NON_GREEDY = '(?:.*\n)+?'
-
     one_or_more_lines_non_greey = Group(
         '.*\n', capturing=False, one_or_more=True, greedy=False
     )
