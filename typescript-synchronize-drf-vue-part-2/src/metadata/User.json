@@ -1,0 +1,132 @@
+{
+    "date_joined": {
+        "field_name": "date_joined",
+        "initial": null,
+        "label": "Date joined",
+        "read_only": false,
+        "required": false,
+        "type": "datetime",
+        "write_only": false
+    },
+    "email": {
+        "field_name": "email",
+        "format": "email",
+        "initial": "",
+        "label": "Email address",
+        "max_length": 254,
+        "read_only": false,
+        "required": false,
+        "type": "email",
+        "write_only": false
+    },
+    "first_name": {
+        "field_name": "first_name",
+        "initial": "",
+        "label": "First name",
+        "max_length": 30,
+        "read_only": false,
+        "required": false,
+        "type": "string",
+        "write_only": false
+    },
+    "groups": {
+        "field_name": "groups",
+        "help_text": "The groups this user belongs to. A user will get all permissions granted to each of their groups.",
+        "initial": [],
+        "label": "Groups",
+        "read_only": false,
+        "required": false,
+        "type": "field",
+        "write_only": false
+    },
+    "id": {
+        "field_name": "id",
+        "initial": null,
+        "label": "ID",
+        "read_only": true,
+        "required": false,
+        "type": "integer",
+        "write_only": false
+    },
+    "is_active": {
+        "field_name": "is_active",
+        "help_text": "Designates whether this user should be treated as active. Unselect this instead of deleting accounts.",
+        "initial": false,
+        "label": "Active",
+        "read_only": false,
+        "required": false,
+        "type": "boolean",
+        "write_only": false
+    },
+    "is_staff": {
+        "field_name": "is_staff",
+        "help_text": "Designates whether the user can log into this admin site.",
+        "initial": false,
+        "label": "Staff status",
+        "read_only": false,
+        "required": false,
+        "type": "boolean",
+        "write_only": false
+    },
+    "is_superuser": {
+        "field_name": "is_superuser",
+        "help_text": "Designates that this user has all permissions without explicitly assigning them.",
+        "initial": false,
+        "label": "Superuser status",
+        "read_only": false,
+        "required": false,
+        "type": "boolean",
+        "write_only": false
+    },
+    "last_login": {
+        "field_name": "last_login",
+        "initial": null,
+        "label": "Last login",
+        "read_only": false,
+        "required": false,
+        "type": "datetime",
+        "write_only": false
+    },
+    "last_name": {
+        "field_name": "last_name",
+        "initial": "",
+        "label": "Last name",
+        "max_length": 150,
+        "read_only": false,
+        "required": false,
+        "type": "string",
+        "write_only": false
+    },
+    "password": {
+        "field_name": "password",
+        "initial": "",
+        "label": "Password",
+        "max_length": 128,
+        "read_only": false,
+        "required": true,
+        "type": "string",
+        "write_only": false
+    },
+    "user_permissions": {
+        "field_name": "user_permissions",
+        "help_text": "Specific permissions for this user.",
+        "initial": [],
+        "label": "User permissions",
+        "read_only": false,
+        "required": false,
+        "type": "field",
+        "write_only": false
+    },
+    "username": {
+        "field_name": "username",
+        "help_text": "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+        "initial": "",
+        "label": "Username",
+        "max_length": 150,
+        "pattern": "^[\\w.@+-]+$",
+        "read_only": false,
+        "required": true,
+        "type": "string",
+        "write_only": false
+    }
+}
