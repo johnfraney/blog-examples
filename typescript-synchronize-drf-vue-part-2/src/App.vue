@@ -19,22 +19,37 @@ import Vue from 'vue';
 
 import User from  './metadata/User.json'
 
-function convertFieldMetadataToInputData(fieldMetadata: any) {
+type UserForm = {
+  [UserField in keyof typeof User]?: typeof User[UserField]["initial"]
+}
+
+interface InputAttributes {
+  [key: string]: boolean | number | string
+}
+
+interface InputData {
+  inputAttributes: InputAttributes
+  label: string
+}
+
+function convertFieldMetadataToInputData(fieldMetadata: typeof User[keyof typeof User]): InputData {
   const label = fieldMetadata.label
-  const inputAttributes: {[key: string]: string | number | boolean} = {
-    maxlength: fieldMetadata.max_length,
+  const inputAttributes: InputAttributes = {
     name: fieldMetadata.field_name,
     required: fieldMetadata.required,
     type: fieldMetadata.type,
+  }
+  // Add non-universal properties
+  if ('max_length' in fieldMetadata) {
+    inputAttributes.maxlength = fieldMetadata.max_length
+  }
+  if ('pattern' in fieldMetadata) {
+    inputAttributes.maxlength = fieldMetadata.pattern
   }
   return {
     inputAttributes,
     label,
   }
-}
-
-type UserForm<T extends object> = {
-  [UserField in keyof typeof User]: any
 }
 
 export default Vue.extend({
