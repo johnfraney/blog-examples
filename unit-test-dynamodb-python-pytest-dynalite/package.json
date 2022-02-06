@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "dynalite": "^3.2.1"
+  },
+  "name": "unit-test-dynamodb-python-pytest-dynalite",
+  "description": "This repo contains the sample function and test described in my blog post, \"[Unit test DynamoDB in Python with pytest and dynalite](https://johnfraney.ca/unit-test-dynamodb-python-pytest-dynalite)\".",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "John Franey",
+  "license": "MIT"
+}
