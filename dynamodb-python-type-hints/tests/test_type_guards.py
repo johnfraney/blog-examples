@@ -1,5 +1,10 @@
 import pytest
-from news.type_guards import guard_news_item, guard_string, guard_optional_string
+from news.type_guards import (
+    TypeGuardException,
+    guard_news_item,
+    guard_string,
+    guard_optional_string,
+)
 from news.types import NewsItem
 
 
@@ -10,7 +15,7 @@ def test_guard_string_with_string():
 def test_guard_string_without_string():
     with pytest.raises(Exception) as exception_info:
         guard_string(100)
-    assert exception_info.match("Received unexpected type")
+    assert exception_info.type == TypeGuardException
 
 
 def test_guard_optional_string_with_string():
@@ -24,7 +29,7 @@ def test_guard_optional_string_with_none():
 def test_guard_optional_string_with_int():
     with pytest.raises(Exception) as exception_info:
         guard_optional_string(100)
-    assert exception_info.match("Received unexpected type")
+    assert exception_info.type == TypeGuardException
 
 
 def test_guard_news_item_valid():

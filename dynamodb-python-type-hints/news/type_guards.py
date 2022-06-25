@@ -1,5 +1,10 @@
 from typing import Any, Optional
+
 from news.types import NewsItem
+
+
+class TypeGuardException(Exception):
+    pass
 
 
 def guard_optional_string(value: Any) -> Optional[str]:
@@ -7,7 +12,7 @@ def guard_optional_string(value: Any) -> Optional[str]:
         return value
     if isinstance(value, str):
         return value
-    raise Exception(
+    raise TypeGuardException(
         f"Received unexpected type: "
         f"expected Optional[str] but received value of type {type(value)}: {value}"
     )
@@ -17,7 +22,7 @@ def guard_string(value: Any) -> str:
     if isinstance(value, str):
         return value
 
-    raise Exception(
+    raise TypeGuardException(
         f"Received unexpected type: "
         f"expected str but received value of type {type(value)}: {value}"
     )
