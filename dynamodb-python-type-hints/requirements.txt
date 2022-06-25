@@ -1,0 +1,5 @@
+black
+boto3
+mypy_boto3_dynamodb
+pytest
+pytest-watch
