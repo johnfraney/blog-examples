@@ -1,4 +1,4 @@
-from typing import Iterator, Optional, TypedDict
+from typing import Iterator, TypedDict
 
 from boto3.dynamodb.conditions import Key
 from mypy_boto3_dynamodb.service_resource import Table
@@ -15,7 +15,7 @@ class NewsController:
     def __init__(self, dynamo_table: Table):
         self.dynamo_table = dynamo_table
 
-    def get_newest_news_item(self) -> Optional[NewsItem]:
+    def get_newest_news_item(self) -> NewsItem | None:
         newest_news_items = self.dynamo_table.query(
             KeyConditionExpression=Key("PK").eq("News"),
             ScanIndexForward=False,

@@ -1,10 +1,10 @@
-from typing import Optional, TypedDict
+from typing import TypedDict
 
 
 class NewsItem(TypedDict):
     PK: str
     SK: str
     title: str
-    description: Optional[str]
+    description: str | None
     published: str
     link: str

@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Any
 
 from news.types import NewsItem
 
@@ -7,14 +7,14 @@ class TypeGuardException(Exception):
     pass
 
 
-def guard_optional_string(value: Any) -> Optional[str]:
+def guard_optional_string(value: Any) -> str | None:
     if value is None:
         return value
     if isinstance(value, str):
         return value
     raise TypeGuardException(
         f"Received unexpected type: "
-        f"expected Optional[str] but received value of type {type(value)}: {value}"
+        f"expected str | None but received value of type {type(value)}: {value}"
     )
 
 
