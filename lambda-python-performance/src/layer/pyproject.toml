@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "lambda-python-performance-layer"
+version = "0.1.0"
+description = ""
+authors = ["John Franey <1728528+johnfraney@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "lambda_python_performance"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+httpx = "^0.24.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
