@@ -3,7 +3,7 @@ import httpx
 
 def handler(event, context):
     response = httpx.get(
-        "http://stapi.co/api/v1/rest/character/search",
+        "https://stapi.co/api/v1/rest/character/search",
     )
     response_as_dict = response.json()
     characters = response_as_dict.get("characters")
